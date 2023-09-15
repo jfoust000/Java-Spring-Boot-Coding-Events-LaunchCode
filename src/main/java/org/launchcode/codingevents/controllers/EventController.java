@@ -6,9 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Controller
 @RequestMapping("events")
 public class EventController {
@@ -29,7 +26,7 @@ public class EventController {
     }
     // lives at /events/create
     @PostMapping("create")
-    public String createEventForm(@ModelAttribute Event newEvent) {
+    public String createEvent(@ModelAttribute Event newEvent) {
 
         EventData.add(newEvent);
         return "redirect:/events";
@@ -37,7 +34,7 @@ public class EventController {
     }
 
     @GetMapping("delete")
-    public String deleteEventForm(Model model) {
+    public String renderDeleteEventForm(Model model) {
 
         model.addAttribute("title", "Delete Events");
         model.addAttribute("events", EventData.getAll());
