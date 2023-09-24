@@ -5,7 +5,7 @@
 
     <nav th:replace="fragments :: header"></nav>
 
-    <form method="post" action="/events/create">
+    <form method="post" action="/events">
         <div class="form-group">
             <label class="label">Name
                 <input th:field="${event.name}" class="form-control">
@@ -21,6 +21,17 @@
         <div class="form-group">
             <label class="label">Contact Email
                 <input th:field="${event.contactEmail}" class="form-control">
+            </label>
+            <p class="error" th:errors="${event.contactEmail}"></p>
+        </div>
+        <div class="form-group">
+            <label class="label">Type
+                <select th:field="${event.type}" class="form-control">
+                    <option th:each="type : ${eventTypeValues}"
+                            th:value="${type}"
+                            th:text="${type.displayName}"
+                    ></option>
+                </select>
             </label>
             <p class="error" th:errors="${event.contactEmail}"></p>
         </div>
