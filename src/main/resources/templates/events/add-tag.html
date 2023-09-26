@@ -5,8 +5,16 @@
 <nav th:replace="fragments :: header"></nav>
 <form method="post">
     <div class="form-group">
+        <input type="hidden" th:value="${event}" th:field="${eventTag.event}">
+        <select th:field="${eventTag.tag}">
+            <option th:each="tag : ${tags}"
+                    th:value="${tag.id}"
+                    th:text="${tag.name}"
+            ></option>
+        </select>
 
     </div>
+    <input type="submit" class="btn btn-success" value="Add Tag">
 </form>
 </body>
 </html>
