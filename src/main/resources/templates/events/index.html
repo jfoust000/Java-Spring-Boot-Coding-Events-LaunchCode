@@ -17,7 +17,7 @@
         </thead>
         <tr th:each="event : ${events}">
             <td th:text="${event.id}"></td>
-            <td th:text="${event.name}"></td>
+            <td><a th:href="'/events/detail?eventId=' + ${event.id}" th:text="${event.name}"></a></td>
             <td th:text="${event.eventDetails.description}"></td>
             <td th:text="${event.eventDetails.contactEmail}"></td>
             <td th:text="${event.eventCategory.name}"></td>
@@ -25,3 +25,4 @@
     </table>
 </body>
 </html>
+
